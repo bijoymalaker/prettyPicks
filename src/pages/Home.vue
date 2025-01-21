@@ -88,12 +88,55 @@
     </div>
     <Category />
     <Product />
+    <Sections />
+    <Product />
+    <DetailBanner />
+
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+          <div>
+            <p class="fs-4">Enjoy the best quality,</p>
+            <p class="fs-4">cosmetics collected by</p>
+          </div>
+          <div class="mt-4">
+            <h2 class="display-5">LABONNO SHOP</h2>
+            <div class="d-flex justify-content-center mt-3">
+              <span class="me-2">7</span>
+              <span class="me-2">06</span>
+              <span class="me-2">49</span>
+              <span class="me-2">01</span>
+              <span>N°8</span>
+            </div>
+            <div class="mt-4">
+              <img src="" alt="Product Image" class="img-fluid rounded shadow-sm" style="max-height: 300px;">
+              <p class="mt-3 fw-bold">Beauty & Health N°8 Anti-Aging Eye Cream</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <Ingredients />
+    <Articals />
+    <Footer />
+
+
+
+
   </div>
 </template>
 
 <script>
 import Category from '../components/Category.vue';
 import Product from '../components/Product.vue';
+import Sections from '../components/Sections.vue';
+import DetailBanner from '../components/DetailBanner.vue';
+import Ingredients from '../components/Ingredients.vue';
+import Articals from '../components/Articals.vue';
+import Footer from '../components/Footer.vue';
+
 
 export default {
   name: 'HomePage',
@@ -103,7 +146,7 @@ export default {
     }
   },
   components: {
-    Product, Category
+    Product, Category, Sections, DetailBanner, Ingredients, Articals, Footer
   }
 }
 </script>
@@ -111,5 +154,10 @@ export default {
 <style scoped>
 .carousel-caption {
   top: 25%;
+}
+
+.display-5 {
+  font-weight: bold;
+  /* Example: Making the heading bolder */
 }
 </style>

@@ -5,6 +5,7 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h2 class="text-center mb-4">Professional Skincare</h2>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis mollitia est vel illo quisquam reprehenderit deserunt laborum quibusdam dolores consequatur libero omnis,</p>
                     </div>
                     <div class="col-md-8 text-end">
                         <Carousel :items-to-show="4" :autoplay="false" :gap="10">
