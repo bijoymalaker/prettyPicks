@@ -34,46 +34,52 @@ import { Carousel, Slide } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 export default {
     name: 'Product',
+    props: {
+        products: {
+            type: Array,
+            required: true
+        }
+    },
     data() {
         return {
-            products: [
-                {
-                    name: "Korean H&S Arbutin Whitening Cream (15ml)",
-                    description: "Face Care, Whitening Cream",
-                    price: 1200,
-                    image: ""
-                },
-                {
-                    name: "Q-NBC Care Whitening Night Cream (15g)",
-                    description: "Face Care, Night Cream",
-                    price: 950,
-                    image: "product2.jpg"
-                },
-                {
-                    name: "C.S.E Rose Strawberry Face/Body Peeling Gel (300ml)",
-                    description: "Body Care, Peeling Gel",
-                    price: 850,
-                    image: ""
-                },
-                {
-                    name: "Madam White Tomato Gluta Soap",
-                    description: "Skin Care, Soap",
-                    price: 750,
-                    image: ""
-                },
-                {
-                    name: "Madam White Tomato Gluta Soap",
-                    description: "Skin Care, Soap",
-                    price: 750,
-                    image: ""
-                },
-                {
-                    name: "Madam White Tomato Gluta Soap",
-                    description: "Skin Care, Soap",
-                    price: 750,
-                    image: ""
-                },
-            ],
+            // products: [
+            //     {
+            //         name: "Korean H&S Arbutin Whitening Cream (15ml)",
+            //         description: "Face Care, Whitening Cream",
+            //         price: 1200,
+            //         image: ""
+            //     },
+            //     {
+            //         name: "Q-NBC Care Whitening Night Cream (15g)",
+            //         description: "Face Care, Night Cream",
+            //         price: 950,
+            //         image: "product2.jpg"
+            //     },
+            //     {
+            //         name: "C.S.E Rose Strawberry Face/Body Peeling Gel (300ml)",
+            //         description: "Body Care, Peeling Gel",
+            //         price: 850,
+            //         image: ""
+            //     },
+            //     {
+            //         name: "Madam White Tomato Gluta Soap",
+            //         description: "Skin Care, Soap",
+            //         price: 750,
+            //         image: ""
+            //     },
+            //     {
+            //         name: "Madam White Tomato Gluta Soap",
+            //         description: "Skin Care, Soap",
+            //         price: 750,
+            //         image: ""
+            //     },
+            //     {
+            //         name: "Madam White Tomato Gluta Soap",
+            //         description: "Skin Care, Soap",
+            //         price: 750,
+            //         image: ""
+            //     },
+            // ],
 
         }
     },
