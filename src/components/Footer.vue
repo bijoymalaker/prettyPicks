@@ -72,7 +72,5 @@
   </script>
   
   <style scoped>
-  footer {
-      font-family: sans-serif; /* Example font */
-  }
+ 
   </style>
