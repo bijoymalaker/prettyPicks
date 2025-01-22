@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <div class="container">
                 <RouterLink class="navbar-brand" to="/">Pretty Picks</RouterLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -16,6 +16,9 @@
                         </li>
                         <li class="nav-item">
                             <RouterLink class="nav-link" to="/about">About</RouterLink>
+                        </li>
+                        <li class="nav-item">
+                            <RouterLink class="nav-link" to="/blog">Blog</RouterLink>
                         </li>
                         <li class="nav-item">
                             <RouterLink class="nav-link" to="/contact">Contact</RouterLink>
@@ -39,7 +42,7 @@
                             </RouterLink>
                         </li>
                         <li class="nav-item">
-                            <RouterLink class="nav-link" to="/shop">Login/register</RouterLink>
+                            <RouterLink class="nav-link" to="/login">Login/Register</RouterLink>
                         </li>
                         <li class="nav-item">
                             <RouterLink class="nav-link position-relative" to="/cart">
@@ -53,10 +56,8 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
-
     </div>
 </template>
 <script>
