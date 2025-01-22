@@ -1,6 +1,5 @@
 <template>
   <div>
-    <!-- <Navbar /> -->
 
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">

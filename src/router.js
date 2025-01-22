@@ -6,6 +6,7 @@ import ContactUs from './pages/ContactUs.vue'
 import BlogPage from './pages/BlogPage.vue'
 import BlogPost from './components/BlogPost.vue'
 import Cart from './pages/Cart.vue'
+import ProductDetails from './components/ProductDetails.vue'
 
 const routes = [
     { path: '/', component: Home },
@@ -16,6 +17,7 @@ const routes = [
     { path: '/:notFound(.*)', redirect: '/' },
     { path: '/post/:id', name: 'blogPost', component: BlogPost },
     { path: '/cart', component: Cart },
+    { path: '/pro', name: 'productDetails', component: ProductDetails },
 
 
 
