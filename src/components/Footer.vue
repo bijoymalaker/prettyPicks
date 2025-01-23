@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-md-4">
             <div class="d-flex align-items-center mb-3">
-              <img src="./assets/logo.png" alt="Labonno Shop Logo" height="50" class="me-2">
+              <img src="" alt="Labonno Shop Logo" height="50" class="me-2">
               <h5 class="mb-0">Labonno Shop</h5>
             </div>
             <ul class="list-unstyled text-muted small">
@@ -33,7 +33,7 @@
             <p class="text-muted small mb-0">All Rights Reserved by Labonno Shop</p>
           </div>
           <div class="col-md-6 text-end">
-            <img src="./assets/payment_methods.png" alt="Payment Methods" height="20">
+            <img src="" alt="Payment Methods" height="20">
           </div>
         </div>
       </div>
