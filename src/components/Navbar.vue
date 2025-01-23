@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
                 <RouterLink class="navbar-brand" to="/">Pretty Picks</RouterLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -74,4 +74,6 @@ export default {
 
 }
 </script>
-<style scoped></style>
+<style scoped>
+
+</style>
