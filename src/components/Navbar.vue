@@ -2,7 +2,7 @@
     <div>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <div class="container">
-                <RouterLink class="navbar-brand" to="/">Pretty Picks</RouterLink>
+                <RouterLink class="navbar-brand" to="/"><img src="../assets/images/logo/prettypicksLogo.png" alt="" srcset="" class="brand-logo">Pretty Picks</RouterLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -75,5 +75,11 @@ export default {
 }
 </script>
 <style scoped>
+
+.brand-logo {
+    height: 35px;
+    width: 35px;
+    margin-right: 10px;
+}
 
 </style>
