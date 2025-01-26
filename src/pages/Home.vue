@@ -27,9 +27,9 @@
       </button>
     </div>
     <Category />
-    <Product :products="products" />
+    <Product :products="products" :titleMenu="productDetailsTitle" />
     <Sections />
-    <Product :products="anotherProducts" />
+    <Product :products="anotherProducts" :titleMenu="anotherProductDetailsTitle" />
     <DetailBanner />
 
     <div class="container">
@@ -83,6 +83,10 @@ import banner2 from '../assets/images/banner2.jpg';
 import banner3 from '../assets/images/banner3.jpg';
 
 
+// Products image import 
+
+
+
 export default {
   name: 'HomePage',
   data() {
@@ -101,6 +105,23 @@ export default {
           image: banner3
         }
       ],
+
+      productDetailsTitle: [
+        {
+          firstTitle: "Professional",
+          lastTitle: "Skin Care",
+          description: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable."
+        }
+      ],
+      anotherProductDetailsTitle: [
+        {
+          firstTitle: "Revitalizing",
+          lastTitle: "Face Mask",
+          description: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable."
+        }
+      ],  
+
+
       products: [
         {
           name: "Korean H&S Arbutin Whitening Cream (15ml)",

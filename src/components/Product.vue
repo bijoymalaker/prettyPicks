@@ -3,10 +3,10 @@
         <section class="product-carousel py-5">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
-                        <h2 class="text-center mb-4">Professional Skincare</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis mollitia est vel illo
-                            quisquam reprehenderit deserunt laborum quibusdam dolores consequatur libero omnis,</p>
+                    <div class="col-md-4" v-for="(title, index) in titleMenu" :key="index">
+                        <h2 class="text-center mb-4 fw-bold">{{ title.firstTitle }}</h2>
+                        <h2 class="text-center mb-4 fw-light fn-space">{{ title.lastTitle }}</h2>
+                        <p>{{ title.description }}</p>
                     </div>
                     <div class="col-md-8 text-end">
                         <Carousel :items-to-show="4" :autoplay="false" :gap="10">
@@ -36,8 +36,12 @@ export default {
     props: {
         products: {
             type: Array,
-            required: true
-        }
+            required: true,
+        },
+        titleMenu: {
+            type: Array,
+            required: true,
+        },
     },
     data() {
         return {
@@ -97,5 +101,8 @@ export default {
 
 .product-carousel .card:hover {
     transform: scale(1.05);
+}
+.fn-space {
+    letter-spacing: 0.5rem;
 }
 </style>
