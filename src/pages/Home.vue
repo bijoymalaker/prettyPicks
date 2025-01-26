@@ -84,7 +84,19 @@ import banner3 from '../assets/images/banner3.jpg';
 
 
 // Products image import 
+import jacket1 from '../assets/images/products/jacket1.jpg';
+import jacket2 from '../assets/images/products/jacket2.jpg';
+import jacket3 from '../assets/images/products/jacket3.jpg';
+import jacket4 from '../assets/images/products/jacket4.jpg';
+import jacket5 from '../assets/images/products/jacket5.jpg';
+import jacket6 from '../assets/images/products/jacket6.jpg';
 
+
+//anotherProducts image import
+import clothes1 from '../assets/images/products/clothes1.jpg';
+import clothes2 from '../assets/images/products/clothes2.jpg';
+import clothes3 from '../assets/images/products/clothes3.jpg';
+import clothes4 from '../assets/images/products/clothes4.jpg';
 
 
 export default {
@@ -127,37 +139,37 @@ export default {
           name: "Korean H&S Arbutin Whitening Cream (15ml)",
           description: "Face Care, Whitening Cream",
           price: 1200,
-          image: ""
+          image: jacket1
         },
         {
           name: "Q-NBC Care Whitening Night Cream (15g)",
           description: "Face Care, Night Cream",
           price: 950,
-          image: "product2.jpg"
+          image: jacket2
         },
         {
           name: "C.S.E Rose Strawberry Face/Body Peeling Gel (300ml)",
           description: "Body Care, Peeling Gel",
           price: 850,
-          image: ""
+          image: jacket3
         },
         {
           name: "Madam White Tomato Gluta Soap",
           description: "Skin Care, Soap",
           price: 750,
-          image: ""
+          image: jacket4
         },
         {
           name: "Madam White Tomato Gluta Soap",
           description: "Skin Care, Soap",
           price: 750,
-          image: ""
+          image: jacket5
         },
         {
           name: "Madam White Tomato Gluta Soap",
           description: "Skin Care, Soap",
           price: 750,
-          image: ""
+          image: jacket6
         },
       ],
       anotherProducts: [
@@ -165,36 +177,36 @@ export default {
           name: "Korean (15ml)",
           description: "Face Car Cream",
           price: 1200,
-          image: ""
+          image: clothes1
         },
         {
           name: "Q Night Cream (15g)",
           description: "Faceam",
           price: 950,
-          image: ""
+          image: clothes2
         },
         {
           name: "C.S. Peeling Gel (300ml)",
           description: "Body Care,l",
           price: 850,
-          image: ""
+          image: clothes3
         },
         {
           name: "Madamoap",
           description: "Skinoap",
           price: 750,
-          image: ""
+          image: clothes4
         },
         {
           name: "Madam WGluta Soap",
           description: "Skie, Soap",
           price: 750,
-          image: ""
+          image: clothes3
         },
         {
           name: "Madato Gluta Soap",
           description: "Skioap",
-          image: ""
+          image: clothes1
         },
       ]
 
