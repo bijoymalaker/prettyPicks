@@ -3,14 +3,8 @@
 
     <div id="carouselExample" class="carousel slide">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="../assets/images/banner-1.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/banner-2.jpg" class="d-block w-100" alt="...">
-        </div>
-        <div class="carousel-item">
-          <img src="../assets/images/banner-3.jpg" class="d-block w-100" alt="...">
+        <div class="carousel-item active" v-for="(image, index) in bannerImages" :key="index" :data-bs-interval="2000">
+          <img :src="image.image" class="d-block w-100" :alt="image.name">
         </div>
       </div>
       <div class="container">
@@ -83,10 +77,31 @@ import Ingredients from '../components/Ingredients.vue';
 import Articals from '../components/Articals.vue';
 
 
+// Banner Images import 
+
+import banner1 from '../assets/images/banner1.jpg';
+import banner2 from '../assets/images/banner2.jpg';
+import banner3 from '../assets/images/banner3.jpg';
+
+
 export default {
   name: 'HomePage',
   data() {
     return {
+      bannerImages: [
+        {
+          name: "banner1",
+          image: banner1
+        },
+        {
+          name: "banner2",
+          image: banner2
+        },
+        {
+          name: "banner3",
+          image: banner3
+        }
+      ],
       products: [
         {
           name: "Korean H&S Arbutin Whitening Cream (15ml)",
