@@ -18,6 +18,17 @@
     </div>
 </template>
 <script>
+// Category Images import 
+import shoeCategory from '../assets/images/products/shoeCategory.jpg';
+import tshirtCategory from '../assets/images/products/tshirtCategory.jpg';
+import hatCategory from '../assets/images/products/hatCategory.jpg';
+import huddiCategory from '../assets/images/products/huddiCategory.jpg';
+import perfume from '../assets/images/products/perfume.jpg';
+import shampoo from '../assets/images/products/shampoo.jpg';
+import watch1 from '../assets/images/products/watch1.jpg';
+
+
+
 import { Carousel, Slide } from 'vue3-carousel';
 import 'vue3-carousel/dist/carousel.css';
 export default {
@@ -26,25 +37,33 @@ export default {
         return {
             categories: [
                 {
-                    name: "Korean  (15ml)",
-                    image: ""
+                    name: "Shoe",
+                    image: shoeCategory,
                 },
                 {
-                    name: "Q-NBC Care Whitening  (15g)",
-                    image: "product2.jpg"
+                    name: "T-Shirt",
+                    image: tshirtCategory,
                 },
                 {
-                    name: "C.S.E Rose Strawberry (300ml)",
-                    image: ""
+                    name: "Hat",
+                    image: hatCategory,
                 },
                 {
-                    name: "Madam White To",
-                    image: ""
+                    name: "Huddi",
+                    image: huddiCategory,
                 },
                 {
-                    name: "Madam White Tomato",
-                    image: ""
+                    name: "Perfume",
+                    image: perfume,
                 },
+                {
+                    name: "Shampoo",
+                    image: shampoo,
+                },
+                {
+                    name: "Watch",
+                    image: watch1,
+                }
             ]
         }
     },

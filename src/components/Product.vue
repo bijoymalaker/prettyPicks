@@ -5,25 +5,24 @@
                 <div class="row">
                     <div class="col-md-4">
                         <h2 class="text-center mb-4">Professional Skincare</h2>
-                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis mollitia est vel illo quisquam reprehenderit deserunt laborum quibusdam dolores consequatur libero omnis,</p>
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Facilis mollitia est vel illo
+                            quisquam reprehenderit deserunt laborum quibusdam dolores consequatur libero omnis,</p>
                     </div>
                     <div class="col-md-8 text-end">
                         <Carousel :items-to-show="4" :autoplay="false" :gap="10">
-                    <Slide v-for="(product, index) in products" :key="index">
-                        <div class="card h-100">
-                            <img :src="product.image" class="card-img-top" :alt="product.name">
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{ product.name }}</h5>
-                                <p class="card-text text-muted">{{ product.description }}</p>
-                                <p class="fw-bold text-primary">৳ {{ product.price }}</p>
-                            </div>
-                        </div>
-                    </Slide>
-                </Carousel>
+                            <Slide v-for="(product, index) in products" :key="index">
+                                <div class="card h-100">
+                                    <img :src="product.image" class="card-img-top" :alt="product.name">
+                                    <div class="card-body text-center">
+                                        <h5 class="card-title">{{ product.name }}</h5>
+                                        <p class="card-text text-muted">{{ product.description }}</p>
+                                        <p class="fw-bold text-primary">৳ {{ product.price }}</p>
+                                    </div>
+                                </div>
+                            </Slide>
+                        </Carousel>
                     </div>
                 </div>
-                
-                
             </div>
         </section>
 
