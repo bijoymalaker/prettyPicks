@@ -1,6 +1,6 @@
 <template>
     <div>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container">
                 <RouterLink class="navbar-brand" to="/"><img src="../assets/images/logo/prettypicksLogo.png" alt="" srcset="" class="brand-logo">Pretty Picks</RouterLink>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">

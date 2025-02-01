@@ -14,8 +14,8 @@
                                 <div class="card h-100">
                                     <img :src="product.image" class="card-img-top" :alt="product.name">
                                     <div class="card-body text-center">
-                                        <h5 class="card-title">{{ product.name }}</h5>
-                                        <p class="card-text text-muted">{{ product.description }}</p>
+                                        <h5 class="card-title">{{ product.name.substring(0,15)+".." }}</h5>
+                                        <p class="card-text text-muted">{{ product.description.substring(0,8)+".." }}</p>
                                         <p class="fw-bold text-primary">৳ {{ product.price }}</p>
                                     </div>
                                 </div>
