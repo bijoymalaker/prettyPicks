@@ -1,5 +1,5 @@
 <template>
-    <div class="container">
+    <div class="container my-5">
         <div class="row justify-content-center">
             <div class="col-lg-10">
                 <div class="text-center">
@@ -47,74 +47,89 @@
 </template>
 
 <script>
+
+import clothes1 from '../assets/images/products/clothes1.jpg';
+import clothes2 from '../assets/images/products/clothes2.jpg';
+import clothes3 from '../assets/images/products/clothes3.jpg';
+import clothes4 from '../assets/images/products/clothes4.jpg';
+import jacket1 from '../assets/images/products/jacket1.jpg';
+import jacket2 from '../assets/images/products/jacket2.jpg';
+import jacket3 from '../assets/images/products/jacket3.jpg';
+import jacket4 from '../assets/images/products/jacket4.jpg';
+import jacket5 from '../assets/images/products/jacket5.jpg';
+import jacket6 from '../assets/images/products/jacket6.jpg';
+
+
+
+
 const articles = [
   {
     id: 1,
     date: '18 DEC',
-    image: '',
+    image: clothes1,
     title: 'DA MANAE ANTI WRINKLE OBSIDIAN CREAM',
     description: 'ত্বকের তারুণ্য ও সৌন্দর্য ধরে রাখার সেরা সমাধান - The best solution to maintain youthful and beautiful skin.',
   },
   {
     id: 2,
     date: '24 DEC',
-    image: '',
+    image: clothes2,
     title: 'PRECIOUS ALPHA-ARBUTIN SERUM (50ML)',
     description: 'ত্বকের যত্নে এক অনন্য পণ্য - A unique product for skin care.',
   },
   {
     id: 3,
     date: '23 DEC',
-    image: '',
+    image: clothes3,
     title: 'EHUV GLUTA Sunscreen ORG (30g)',
     description: 'সূর্যের ক্ষতিকর প্রভাব থেকে ত্বককে সুরক্ষিত রাখুন - Protect your skin from the harmful effects of the sun.',
   },
   {
     id: 4,
     date: '15 DEC',
-    image: '',
+    image: clothes4,
     title: 'O’ MAYLN HAIR VITAMIN-A.C.E',
     description: 'চুলের সৌন্দর্য এবং যত্নে এক নতুন যুগের প্রবর্তক - A new era in hair beauty and care.',
   },
     {
     id: 5,
     date: '10 JAN',
-    image: '',
+    image: jacket1,
     title: 'New Product Launch - Hydrating Facial Mask',
     description: 'Introducing our latest innovation in skincare: a deeply hydrating facial mask for radiant skin.',
   },
   {
     id: 6,
     date: '5 JAN',
-    image: '',
+    image: jacket2,
     title: 'Winter Skincare Tips',
     description: 'Learn how to protect your skin from the harsh winter weather with our expert tips.',
   },
     {
     id: 7,
     date: '28 DEC',
-    image: '',
+    image: jacket3,
     title: 'The Benefits of Vitamin C Serum',
     description: 'Discover the amazing benefits of Vitamin C serum for brighter, healthier-looking skin.',
   },
     {
     id: 8,
     date: '20 DEC',
-    image: '',
+    image: jacket4,
     title: 'Natural Ingredients for Glowing Skin',
     description: 'Explore the power of natural ingredients in achieving a radiant and healthy complexion.',
   },
     {
     id: 9,
     date: '12 JAN',
-    image: '',
+    image: jacket5,
     title: 'Anti-Aging Secrets Revealed',
     description: 'Unlock the secrets to youthful skin with our anti-aging skincare routine.',
   },
     {
     id: 10,
     date: '7 JAN',
-    image: '',
+    image: jacket6,
     title: 'The Ultimate Guide to Hair Care',
     description: 'Everything you need to know about achieving healthy, luscious locks.',
   },
