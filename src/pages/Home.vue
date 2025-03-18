@@ -68,35 +68,36 @@
 </template>
 
 <script>
-import Category from '../components/Category.vue';
-import Product from '../components/Product.vue';
-import Sections from '../components/Sections.vue';
-import DetailBanner from '../components/DetailBanner.vue';
-import Ingredients from '../components/Ingredients.vue';
-import Articals from '../components/Articals.vue';
+
+    import Category from '../components/Category.vue';
+    import Product from '../components/Product.vue';
+    import Sections from '../components/Sections.vue';
+    import DetailBanner from '../components/DetailBanner.vue';
+    import Ingredients from '../components/Ingredients.vue';
+    import Articals from '../components/Articals.vue';
 
 
-// Banner Images import 
+    // Banner Images import 
 
-import banner1 from '../assets/images/banner1.jpg';
-import banner2 from '../assets/images/banner2.jpg';
-import banner3 from '../assets/images/banner3.jpg';
-
-
-// Products image import 
-import jacket1 from '../assets/images/products/jacket1.jpg';
-import jacket2 from '../assets/images/products/jacket2.jpg';
-import jacket3 from '../assets/images/products/jacket3.jpg';
-import jacket4 from '../assets/images/products/jacket4.jpg';
-import jacket5 from '../assets/images/products/jacket5.jpg';
-import jacket6 from '../assets/images/products/jacket6.jpg';
+    import banner1 from '../assets/images/banner1.jpg';
+    import banner2 from '../assets/images/banner2.jpg';
+    import banner3 from '../assets/images/banner3.jpg';
 
 
-//anotherProducts image import
-import clothes1 from '../assets/images/products/clothes1.jpg';
-import clothes2 from '../assets/images/products/clothes2.jpg';
-import clothes3 from '../assets/images/products/clothes3.jpg';
-import clothes4 from '../assets/images/products/clothes4.jpg';
+    // Products image import 
+    import jacket1 from '../assets/images/products/jacket1.jpg';
+    import jacket2 from '../assets/images/products/jacket2.jpg';
+    import jacket3 from '../assets/images/products/jacket3.jpg';
+    import jacket4 from '../assets/images/products/jacket4.jpg';
+    import jacket5 from '../assets/images/products/jacket5.jpg';
+    import jacket6 from '../assets/images/products/jacket6.jpg';
+
+
+    //anotherProducts image import
+    import clothes1 from '../assets/images/products/clothes1.jpg';
+    import clothes2 from '../assets/images/products/clothes2.jpg';
+    import clothes3 from '../assets/images/products/clothes3.jpg';
+    import clothes4 from '../assets/images/products/clothes4.jpg';
 
 
 export default {

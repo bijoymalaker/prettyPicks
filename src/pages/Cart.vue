@@ -3,7 +3,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h2 class="mb-4">Billing Details</h2>
-                <form>
+                <form action="#" method="post">
                     <div class="form-row">
                         <div class="col-md-6 mb-3">
                             <label for="country">Country/Region</label>
