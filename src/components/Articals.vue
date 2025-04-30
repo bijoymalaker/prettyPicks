@@ -48,6 +48,8 @@
 
 <script>
 
+// Import images;
+
 import clothes1 from '../assets/images/products/clothes1.jpg';
 import clothes2 from '../assets/images/products/clothes2.jpg';
 import clothes3 from '../assets/images/products/clothes3.jpg';
