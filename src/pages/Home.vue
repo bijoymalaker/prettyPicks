@@ -40,7 +40,7 @@
             <p class="fs-4">cosmetics collected by</p>
           </div>
           <div class="mt-4">
-            <h2 class="display-5">LABONNO SHOP</h2>
+            <h2 class="display-5">Pretty Picks</h2>
             <div class="d-flex justify-content-center mt-3">
               <span class="me-2">7</span>
               <span class="me-2">06</span>
