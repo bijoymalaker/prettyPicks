@@ -3,7 +3,7 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-md-6">
-            <img src="" alt="Discover Makeup Essentials" class="img-fluid rounded">
+            <img :src="blog1" alt="Discover Makeup Essentials" class="img-fluid rounded">
           </div>
           <div class="col-md-6">
             <h2 class="text-muted">Discover a beautiful you</h2>
@@ -29,10 +29,17 @@
   </template>
   
   <script>
+
+  import blog1 from "../assets/images/blog1.jpg";
+
+
+
   export default {
     name: "MakeupEssentials",
     data() {
-      return {};
+      return {
+        blog1,
+      };
     },
   };
   </script>
