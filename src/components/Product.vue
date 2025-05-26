@@ -9,7 +9,8 @@
                         <p>{{ title.description }}</p>
                     </div>
                     <div class="col-md-8 text-end">
-                        <Carousel :items-to-show="4" :autoplay="false" :gap="10">
+                        <Carousel :items-to-show="4" :autoplay="false" :gap="10" :breakpoints="{
+                            0: { itemsToShow: 1 }, 768: { itemsToShow: 2 }, 992: { itemsToShow: 3 }, 1200: { itemsToShow: 4 },}">
                             <Slide v-for="(product, index) in products" :key="index">
                                 <div class="card h-100">
                                     <img :src="product.image" class="card-img-top" :alt="product.name">
