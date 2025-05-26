@@ -1,6 +1,6 @@
 <template>
     <div>
-        <InnerPageBanner />
+        <InnerPageBanner :innerBanner="blogBanner"  />
         <div class="container my-4">
             <div class="row">
                 <div class="col-md-4 mb-4" v-for="(post, index) in blogPosts" :key="index">
@@ -21,6 +21,7 @@
 
 <script>
 import InnerPageBanner from '../components/innerpage/InnerPageBanner.vue';
+import innerBanner from '../assets/images/BlackWeddingJewelryLandscap.png';
 
 export default {
     name: 'BlogPage',
@@ -29,6 +30,7 @@ export default {
     },
     data() {
         return {
+            blogBanner: innerBanner,
             blogTitle: 'Blog',
             blogFooter: 'Pretty Picks. All Rights Reserved.',
             blogPosts: [
@@ -50,3 +52,5 @@ export default {
     }
 };
 </script>
+<style scoped>
+</style>

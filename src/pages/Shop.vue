@@ -1,6 +1,6 @@
 <template>
     <div>
-        <InnerPageBanner />
+        <InnerPageBanner :innerBanner="innerBanner" />
         <div class="container my-4">
             <div class="row">
                 <!-- Sidebar -->
@@ -46,8 +46,11 @@
 </template>
 
 <script setup>
+
 import { ref, computed, onMounted } from "vue";
 import InnerPageBanner from "../components/innerpage/InnerPageBanner.vue";
+
+import innerBanner from '../assets/images/with_photosWeb_Banner_716_4jjhhj.webp';
 
 const priceRange = ref([400, 2200]);
 const products = ref([]);
@@ -92,4 +95,7 @@ onMounted(fetchProducts);
 // });
 </script>
 
-<style></style>
+<style>
+
+
+</style>
