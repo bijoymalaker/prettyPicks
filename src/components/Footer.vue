@@ -4,8 +4,8 @@
         <div class="row">
           <div class="col-md-4">
             <div class="d-flex align-items-center mb-3">
-              <img src="" alt="Labonno Shop Logo" height="50" class="me-2">
-              <h5 class="mb-0">Labonno Shop</h5>
+              <img :src="logo" alt="Shop Logo" height="50" class="me-2">
+              <h5 class="mb-0">Pretty Picks</h5>
             </div>
             <ul class="list-unstyled text-muted small">
               <li><i class="fas fa-map-marker-alt me-2"></i>Dhaka, Bangladesh</li>
@@ -33,7 +33,7 @@
             <p class="text-muted small mb-0">All Rights Reserved by Labonno Shop</p>
           </div>
           <div class="col-md-6 text-end">
-            <img src="" alt="Payment Methods" height="20">
+            <img :src="paymentImage" alt="Payment Methods" height="25" class="mw-100">
           </div>
         </div>
       </div>
@@ -42,10 +42,11 @@
   
   <script setup>
   import { onMounted } from 'vue';
-//   import logo from './assets/logo.png'; // Import logo
+  import logo from '../assets/images/logo/prettypicksLogo.png'; // Import logo
 //   import paymentMethods from './assets/payment_methods.png'; // Import payment methods image
 //   import post1 from './assets/post1.jpg'; // Import post images
 //   import post2 from './assets/post2.jpg';
+  import paymentImage from '../assets/images/paymentssl.png';
   
   const recentPosts = [
     {

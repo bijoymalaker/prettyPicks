@@ -49,7 +49,7 @@
               <span>N°8</span>
             </div>
             <div class="mt-4">
-              <img src="" alt="Product Image" class="img-fluid rounded shadow-sm" style="max-height: 300px;">
+              <img src="../assets/images/womensBanner.jpg" alt="Product Image" class="img-fluid rounded shadow-sm" style="max-height: 300px;">
               <p class="mt-3 fw-bold">Beauty & Health N°8 Anti-Aging Eye Cream</p>
             </div>
           </div>
