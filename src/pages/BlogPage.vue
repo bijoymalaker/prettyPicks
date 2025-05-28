@@ -3,7 +3,7 @@
         <InnerPageBanner :innerBanner="blogBanner"  />
         <div class="container my-4">
             <div class="row">
-                <div class="col-md-4 mb-4" v-for="(post, index) in blogPosts" :key="index">
+                <div class="col-md-4 mb-4" v-for="(post, index) in articles" :key="idex">
                     <div class="card">
                         <img :src="post.image" class="card-img-top" :alt="post.title">
                         <div class="card-body">
@@ -22,32 +22,20 @@
 <script>
 import InnerPageBanner from '../components/innerpage/InnerPageBanner.vue';
 import innerBanner from '../assets/images/BlackWeddingJewelryLandscap.png';
+import { articles } from '../components/articles.js'; // Assuming you have a file with articles data
 
 export default {
     name: 'BlogPage',
     components: {
-        InnerPageBanner
+        InnerPageBanner,
+        articles,
     },
     data() {
         return {
             blogBanner: innerBanner,
             blogTitle: 'Blog',
             blogFooter: 'Pretty Picks. All Rights Reserved.',
-            blogPosts: [
-                {
-                    title: 'AR Carrot Honey Rice Milk Facewash',
-                    date: 'December 17, 2024',
-                    image: 'path/to/facewash-image.jpg',
-                    summary: 'A natural gift for your skin...',
-                },
-                {
-                    title: 'KOJIC GLUTA PAPAYA Soap',
-                    date: 'December 14, 2024',
-                    image: 'path/to/kojic-image.jpg',
-                    summary: 'Discover the magic of Kojic Papaya...',
-                }
-                // Add more blog posts here
-            ]
+            articles: articles, // Assuming articles.js exports an array of article objects
         };
     }
 };
