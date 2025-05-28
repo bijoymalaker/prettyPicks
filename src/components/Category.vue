@@ -1,20 +1,23 @@
 <template>
-    <div>
-        <section class="category-carousel py-5">
-            <div class="container">
-                <Carousel :items-to-show="4" :autoplay="false" :gap="10" :breakpoints="{0: { itemsToShow: 1 }, 768: { itemsToShow: 2 }, 992: { itemsToShow: 3 },1200: { itemsToShow: 4 },}">
-                    <Slide v-for="(category, index) in categories" :key="index">
-                        <div class="card h-100">
-                            <img :src="category.image" class="card-img-top" :alt="category.name" />
-                            <div class="card-body text-center">
-                                <h5 class="card-title">{{ category.name }}</h5>
-                            </div>
+    <section class="category-carousel py-5">
+        <div class="container">
+            <Carousel :items-to-show="4" :autoplay="false" :gap="10" :breakpoints="{
+                0: { itemsToShow: 1 },
+                768: { itemsToShow: 2 },
+                992: { itemsToShow: 3 },
+                1200: { itemsToShow: 4 },
+            }">
+                <Slide v-for="(category, index) in categories" :key="index">
+                    <div class="card h-100">
+                        <img :src="category.image" class="card-img-top" :alt="category.name" />
+                        <div class="card-body text-center">
+                            <h5 class="card-title">{{ category.name }}</h5>
                         </div>
-                    </Slide>
-                </Carousel>
-            </div>
-        </section>
-    </div>
+                    </div>
+                </Slide>
+            </Carousel>
+        </div>
+    </section>
 </template>
 <script>
 // Category Images import
