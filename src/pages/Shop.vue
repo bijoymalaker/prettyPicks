@@ -2,6 +2,21 @@
     <div>
         <InnerPageBanner :innerBanner="innerBanner" />
         <div class="container my-4">
+            <div class="d-block d-md-none mb-3">
+                <select class="form-select" v-model="selectedCategory" @change="selectCategory(selectedCategory)">
+                    <option v-for="(category, index) in categories" :key="index" :value="category">
+                        {{ category }}
+                    </option>
+                </select>
+            </div>
+            <ul class="nav nav-tabs justify-content-center d-none d-md-flex">
+                <li class="nav-item" v-for="(category, index) in categories" :key="index">
+                    <a class="nav-link text-capitalize" :class="{ active: selectedCategory === category }" href="#"
+                        @click.prevent="selectCategory(category)">{{ category }}</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container my-4">
             <div class="row">
                 <!-- Sidebar -->
                 <aside class="col-md-3">
@@ -25,11 +40,13 @@
                 <!-- Main Content -->
                 <main class="col-md-9">
                     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-                        <div class="col" v-for="product in products" :key="product.id">
+                        <div class="col" v-for="product in filteredProducts" :key="product.id">
                             <div class="card h-100">
-                                <img :src="product.images" class="card-img-top" :alt="product.name" />
+                                <img :src="product.images" class="card-img-top" :alt="product.title" />
                                 <div class="card-body">
-                                    <h5 class="card-title">{{ product.name }}</h5>
+                                    <button @click="console.log(product)" class="btn btn-secondary btn-sm mb-2">Show in
+                                        Console</button>
+                                    <h5 class="card-title">{{ product.title }}</h5>
                                     <p class="card-text">{{ product.category }}</p>
                                     <p class="text-muted">
                                         <s v-if="product.discount">&#2547; {{ product.originalPrice }}</s>
@@ -46,10 +63,8 @@
 </template>
 
 <script setup>
-
-import { ref, computed, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import InnerPageBanner from "../components/innerpage/InnerPageBanner.vue";
-
 import innerBanner from '../assets/images/with_photosWeb_Banner_716_4jjhhj.webp';
 
 const priceRange = ref([400, 2200]);
@@ -59,7 +74,9 @@ const filters = ref({
     inStock: false,
 });
 
+// Add "All" as the first category
 const categories = [
+    "All",
     "beauty",
     "womens-bags",
     "womens-dresses",
@@ -68,10 +85,17 @@ const categories = [
     "womens-watches",
 ];
 
+const selectedCategory = ref(categories[0]);
+
+function selectCategory(category) {
+    selectedCategory.value = category;
+}
+
 const fetchProducts = async () => {
     try {
         const allProducts = [];
-        for (const category of categories) {
+        // Skip "All" when fetching
+        for (const category of categories.slice(1)) {
             const response = await fetch(
                 `https://dummyjson.com/products/category/${category}`
             );
@@ -88,14 +112,11 @@ const fetchProducts = async () => {
 
 onMounted(fetchProducts);
 
-// const filteredProducts = computed(() => {
-//     return products.value.filter(product => {
-//         return product.price >= priceRange.value[0] && product.price <= priceRange.value[1];
-//     });
-// });
+const filteredProducts = computed(() => {
+    if (selectedCategory.value === "All") {
+        return products.value;
+    }
+    return products.value.filter(product => product.category === selectedCategory.value);
+});
 </script>
-
-<style>
-
-
-</style>
+<style scoped></style>
