@@ -18,9 +18,8 @@ const routes = [
     { path: '/blog', component: BlogPage },
     { path: '/login',  component: Login },
     { path: '/register',  component: Register },
-
     { path: '/:notFound(.*)', redirect: '/' },
-    { path: '/post/:id', name: 'blogPost', component: BlogPost },
+    { path: '/blog/:id', name: 'blogPost', component: BlogPost },
     { path: '/cart', component: Cart },
     { path: '/pro', name: 'productDetails', component: ProductDetails },
 

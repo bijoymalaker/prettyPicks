@@ -119,4 +119,6 @@ const filteredProducts = computed(() => {
     return products.value.filter(product => product.category === selectedCategory.value);
 });
 </script>
-<style scoped></style>
+<style scoped>
+
+</style>
