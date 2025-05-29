@@ -52,6 +52,8 @@
                                         <s v-if="product.discount">&#2547; {{ product.originalPrice }}</s>
                                         &#2547; {{ product.price }}
                                     </p>
+                                    <router-link :to="{ name: 'productPage', params: { id: index } }"
+                                        class="btn btn-primary">Read More</router-link>
                                 </div>
                             </div>
                         </div>
@@ -119,6 +121,4 @@ const filteredProducts = computed(() => {
     return products.value.filter(product => product.category === selectedCategory.value);
 });
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>
