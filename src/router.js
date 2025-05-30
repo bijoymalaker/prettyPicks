@@ -19,11 +19,11 @@ const routes = [
     { path: '/blog', component: BlogPage },
     { path: '/login',  component: Login },
     { path: '/register',  component: Register },
-    { path: '/:notFound(.*)', redirect: '/' },
     { path: '/blog/:id', name: 'blogPost', component: BlogPost },
     { path: '/product/:id', name: 'productPage', component: ProductPage },
     { path: '/cart', component: Cart },
     { path: '/pro', name: 'productDetails', component: ProductDetails },
+    { path: '/:notFound(.*)', redirect: '/' },
 
 
 

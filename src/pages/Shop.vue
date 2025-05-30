@@ -52,7 +52,7 @@
                                         <s v-if="product.discount">&#2547; {{ product.originalPrice }}</s>
                                         &#2547; {{ product.price }}
                                     </p>
-                                    <router-link :to="{ name: 'productPage', params: { id: index } }"
+                                    <router-link :to="{ name: 'productPage', params: { id: product.id } }"
                                         class="btn btn-primary">Read More</router-link>
                                 </div>
                             </div>
