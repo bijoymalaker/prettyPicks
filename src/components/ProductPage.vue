@@ -6,7 +6,7 @@
         <div class="card mb-4">
           <div class="row g-0">
             <div class="col-md-5">
-              <img :src="product.thumbnail || product.images?.[0]" :alt="product.title" class="img-fluid rounded-start w-100" />
+              <img :src="selectedImage" :alt="product.title" class="img-fluid rounded-start w-100" />
             </div>
             <div class="col-md-7">
               <div class="card-body">
@@ -16,7 +16,9 @@
                 <p v-if="product.discountPercentage" class="mb-2">
                   <span class="badge bg-warning text-dark">-{{ product.discountPercentage }}% OFF</span>
                 </p>
-                <p class="mb-2"><strong>Category:</strong> {{ product.category }}</p>
+                <p class="mb-2">
+                  <strong>Category:</strong> {{ product.category }}
+                </p>
                 <p class="mb-2"><strong>Brand:</strong> {{ product.brand }}</p>
                 <p class="mb-2"><strong>Stock:</strong> {{ product.stock }}</p>
                 <button class="btn btn-success">Add to Cart</button>
@@ -28,7 +30,12 @@
         <div v-if="product.images && product.images.length > 1" class="mb-4">
           <h5>More Images</h5>
           <div class="d-flex flex-wrap gap-2">
-            <img v-for="(img, idx) in product.images" :key="idx" :src="img" :alt="product.title" style="width: 100px; height: 100px; object-fit: cover;" class="rounded border" />
+            <img v-for="(img, idx) in product.images" :key="idx" :src="img" :alt="product.title" style="
+                width: 100px;
+                height: 100px;
+                object-fit: cover;
+                cursor: pointer;
+              " class="rounded border" @click="selectedImage = img" />
           </div>
         </div>
       </div>
@@ -38,13 +45,17 @@
         <div v-for="suggestion in suggestions" :key="suggestion.id" class="card mb-3">
           <div class="row g-0 align-items-center">
             <div class="col-4">
-              <img :src="suggestion.thumbnail || suggestion.images?.[0]" :alt="suggestion.title" class="img-fluid rounded" />
+              <img :src="suggestion.thumbnail || suggestion.images?.[0]" :alt="suggestion.title"
+                class="img-fluid rounded" />
             </div>
             <div class="col-8">
               <div class="card-body py-2 px-2">
                 <h6 class="card-title mb-1">{{ suggestion.title }}</h6>
-                <p class="card-text text-muted small mb-1">&#2547; {{ suggestion.price }}</p>
-                <router-link :to="{ name: 'productPage', params: { id: suggestion.id } }" class="btn btn-sm btn-outline-primary">View</router-link>
+                <p class="card-text text-muted small mb-1">
+                  &#2547; {{ suggestion.price }}
+                </p>
+                <router-link :to="{ name: 'productPage', params: { id: suggestion.id } }"
+                  class="btn btn-sm btn-outline-primary">View</router-link>
               </div>
             </div>
           </div>
@@ -66,11 +77,13 @@ const route = useRoute();
 const product = ref(null);
 const allProducts = ref([]);
 const suggestions = ref([]);
+const selectedImage = ref(""); // Add this line
 
 const fetchProduct = async (id) => {
   // Fetch product details by ID
   const res = await fetch(`https://dummyjson.com/products/${id}`);
   product.value = await res.json();
+  selectedImage.value = product.value.thumbnail || product.value.images?.[0]; // Set default image
 };
 
 const fetchAllProducts = async () => {
@@ -83,7 +96,7 @@ const fetchAllProducts = async () => {
 const updateSuggestions = () => {
   // Exclude the current product from suggestions, pick 4 random others
   suggestions.value = allProducts.value
-    .filter(p => p.id !== Number(route.params.id))
+    .filter((p) => p.id !== Number(route.params.id))
     .sort(() => 0.5 - Math.random())
     .slice(0, 4);
 };
@@ -93,10 +106,13 @@ onMounted(async () => {
   updateSuggestions();
 });
 
-watch(() => route.params.id, async (newId) => {
-  await fetchProduct(newId);
-  updateSuggestions();
-});
+watch(
+  () => route.params.id,
+  async (newId) => {
+    await fetchProduct(newId);
+    updateSuggestions();
+  }
+);
 </script>
 
 <style scoped>
