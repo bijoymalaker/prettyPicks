@@ -2,8 +2,8 @@
   <div class="container my-5" v-if="product">
     <div class="row">
       <!-- Product Details -->
-      <div class="col-md-8">
-        <div class="card mb-4">
+      <div class="col-md-12">
+        <div class="card mb-4 bg-transparent border-0">
           <div class="row g-0">
             <div class="col-md-5">
               <img :src="selectedImage" :alt="product.title" class="img-fluid rounded-start w-100" />
@@ -40,10 +40,12 @@
         </div>
       </div>
       <!-- Product Suggestions -->
-      <div class="col-md-4">
+       
+      <div class="col-auto">
         <h5 class="mb-3">You may also like</h5>
+        <div class="d-flex justify-content-center align-items-center gap-3">
         <div v-for="suggestion in suggestions" :key="suggestion.id" class="card mb-3">
-          <div class="row g-0 align-items-center">
+          <div class="row g-0 align-items-center" style="height: 150px;">
             <div class="col-4">
               <img :src="suggestion.thumbnail || suggestion.images?.[0]" :alt="suggestion.title"
                 class="img-fluid rounded" />
@@ -60,6 +62,7 @@
             </div>
           </div>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -119,4 +122,5 @@ watch(
 .card-title {
   font-size: 1.25rem;
 }
+
 </style>
