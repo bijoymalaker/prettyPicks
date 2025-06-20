@@ -3,14 +3,14 @@
         <InnerPageBanner :innerBanner="blogBanner"  />
         <div class="container my-4">
             <div class="row">
-                <div class="col-md-4 mb-4" v-for="(post, index) in articles" :key="index">
+                <div class="col-md-4 mb-4" v-for="post in articles" :key="post.id">
                     <div class="card">
                         <img :src="post.image" class="card-img-top" :alt="post.title">
                         <div class="card-body">
                             <h5 class="card-title">{{ post.title }}</h5>
                             <p class="text-muted">Posted on {{ post.date }}</p>
                             <p class="card-text">{{ post.summary }}</p>
-                            <router-link :to="{ name: 'blogPost', params: { id: index } }" class="btn btn-primary">Read More</router-link>
+                            <router-link :to="{ name: 'blogPost', params: { id: post.id } }" class="btn btn-primary">Read More</router-link>
                         </div>
                     </div>
                 </div>

@@ -1,30 +1,34 @@
 <template>
-  <div class="container my-5" v-if="blog">
-    <div class="row">
-      <!-- Blog Image -->
-      <div class="col-md-6 mb-4">
-        <img :src="blog.image" :alt="blog.title" class="img-fluid rounded w-100" />
+  <div class="blogpost-hero position-relative mb-5" v-if="blog">
+    <img :src="blog.image" :alt="blog.title" class="w-100 hero-img" />
+    <div class="hero-overlay position-absolute top-0 start-0 w-100 h-100 d-flex flex-column justify-content-center align-items-start px-5">
+      <h1 class="text-white display-5 fw-bold mb-3 hero-title">{{ blog.title }}</h1>
+      <div class="text-white mb-2">
+        <span><font-awesome-icon icon="fa-regular fa-user" /> {{ blog.author }}</span>
+        <span class="mx-2">|</span>
+        <span><font-awesome-icon icon="fa-regular fa-calendar" /> {{ blog.date }}</span>
+        <span class="mx-2">|</span>
+        <span><font-awesome-icon icon="fa-regular fa-comments" /> 0 comments</span>
       </div>
-      <!-- Blog Details -->
-      <div class="col-md-6 mb-4">
-        <h2 class="fw-bold mb-2">{{ blog.title }}</h2>
-        <div class="mb-2 text-muted">
-          <span>By {{ blog.author }}</span> |
-          <span>{{ blog.date }}</span>
-        </div>
-        <div class="mb-3">
-          <span class="badge bg-primary" v-if="blog.category">{{ blog.category }}</span>
-        </div>
-        <div class="mb-3" v-if="blog.tags && blog.tags.length">
-          <span class="badge bg-secondary me-1" v-for="tag in blog.tags" :key="tag">{{ tag }}</span>
-        </div>
-        <p class="lead">{{ blog.summary }}</p>
+      <div class="text-white mb-2">
+        <span class="badge bg-light text-dark">{{ blog.category }}</span>
       </div>
     </div>
-    <!-- Blog Content -->
-    <div class="row">
-      <div class="col-12">
+  </div>
+  <div class="container my-5" v-if="blog">
+    <div class="row justify-content-center">
+      <div class="col-lg-9">
         <div class="blog-content" v-html="blog.content"></div>
+        <div class="d-flex justify-content-between align-items-center mt-4">
+          <div>
+            <span class="badge bg-light text-dark me-2" v-for="tag in blog.tags" :key="tag">{{ tag }}</span>
+          </div>
+          <div>
+            <span class="me-3"><font-awesome-icon icon="fa-solid fa-share" /> Share</span>
+            <span class="me-3"><font-awesome-icon icon="fa-brands fa-twitter" /> Tweet</span>
+            <span><font-awesome-icon icon="fa-solid fa-print" /> Print</span>
+          </div>
+        </div>
       </div>
     </div>
     <!-- Related Blogs -->
@@ -53,7 +57,7 @@
 <script setup>
 import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
-import {articles} from "../assets/blogs/blogs"; // Adjust the path if needed
+import { articles } from "../assets/blogs/blogs"; // Adjust the path if needed
 
 const route = useRoute();
 const blog = ref(null);
@@ -61,13 +65,8 @@ const allBlogs = ref([]);
 const relatedBlogs = ref([]);
 
 const fetchBlog = (id) => {
-  // Find the blog by id from blogsData
   const found = articles.find(b => String(b.id) === String(id));
-  if (found) {
-    blog.value = found;
-  } else {
-    blog.value = null;
-  }
+  blog.value = found || null;
 };
 
 const fetchAllBlogs = () => {
@@ -94,16 +93,38 @@ watch(() => route.params.id, (newId) => {
 </script>
 
 <style scoped>
+.blogpost-hero {
+  height: 420px;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 2rem;
+}
+.hero-img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  object-position: center;
+}
+.hero-overlay {
+  background: linear-gradient(90deg, rgba(0,0,0,0.55) 60%, rgba(0,0,0,0.1) 100%);
+  color: #fff;
+  left: 0;
+  top: 0;
+  height: 100%;
+}
+.hero-title {
+  text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
 .blog-content {
   font-size: 1.1rem;
   line-height: 1.7;
+}
+.card-title {
+  font-size: 1.1rem;
 }
 .breadcrumb {
   background: none;
   padding: 0;
   margin-bottom: 1rem;
-}
-.card-title {
-  font-size: 1.1rem;
 }
 </style>

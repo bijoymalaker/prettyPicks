@@ -14,13 +14,15 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 /* import specific icons */
 import { faCartArrowDown, faArrowTurnUp, faLocationDot, faPhone } from '@fortawesome/free-solid-svg-icons'
-import { faFacebookF, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
-import { faHeart } from '@fortawesome/free-regular-svg-icons'
+import { faFacebookF, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons'
+import { faCalendar, faComment, faHeart, faUser } from '@fortawesome/free-regular-svg-icons'
+import { faShare } from '@fortawesome/free-solid-svg-icons/faShare';
+import { faPrint } from '@fortawesome/free-solid-svg-icons/faPrint';
 
 
 
 /* add icons to the library */
-library.add(faHeart, faCartArrowDown, faFacebookF, faArrowTurnUp, faLocationDot, faPhone, faWhatsapp)
+library.add(faHeart, faCartArrowDown, faFacebookF, faArrowTurnUp, faLocationDot, faPhone, faWhatsapp, faUser, faCalendar, faComment, faShare, faTwitter, faShare, faPrint)
 
 
 
