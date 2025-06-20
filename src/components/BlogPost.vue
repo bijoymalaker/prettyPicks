@@ -37,7 +37,7 @@
       <div class="row">
         <div v-for="related in relatedBlogs" :key="related.id" class="col-md-3 mb-4">
           <div class="card h-100">
-            <img :src="related.image" :alt="related.title" class="card-img-top" style="height: 180px; object-fit: cover;" />
+            <img :src="related.image" :alt="related.title" class="card-img-top" style="height: 300px; object-fit: cover;" />
             <div class="card-body">
               <h6 class="card-title">{{ related.title }}</h6>
               <p class="card-text text-muted small mb-1">{{ related.summary }}</p>
