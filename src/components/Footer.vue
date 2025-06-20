@@ -17,6 +17,11 @@
             <h6 class="mb-3">RECENT POSTS</h6>
             <ul class="list-unstyled">
               <li v-for="post in articles.slice(0, 3)" :key="post.id" class="mb-2">
+               <router-link
+  :to="`/blog/${post.id}`"
+  class="text-decoration-none text-dark"
+  @click.native="scrollToTop"
+>
                 <div class="d-flex align-items-start">
                   <img :src="post.image" :alt="post.title" height="50" class="me-2 rounded">
                   <div>
@@ -24,6 +29,7 @@
                     <span class="text-muted small">{{ post.date }}</span>
                   </div>
                 </div>
+                </router-link>
               </li>
             </ul>
           </div>
@@ -41,12 +47,13 @@
   </template>
   
   <script setup>
-  import { articles } from '../assets/blogs/blogs'; // <-- Import from new file
-  import logo from '../assets/images/logo/prettypicksLogo.png'; // Import logo
-
+  import { articles } from '../assets/blogs/blogs';
+  import logo from '../assets/images/logo/prettypicksLogo.png';
   import paymentImage from '../assets/images/paymentssl.png';
-  
-  
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
   </script>
   
   <style scoped>
