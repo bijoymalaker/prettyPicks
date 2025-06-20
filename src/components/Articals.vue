@@ -54,7 +54,7 @@
 
 <script>
 import { ref, computed } from "vue";
-import { articles } from "./articles.js"; // <-- Import from new file
+import { articles } from "../assets/blogs/blogs"; // <-- Import from new file
 
 export default {
     name: "Articals",

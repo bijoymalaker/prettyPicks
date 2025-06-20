@@ -41,7 +41,7 @@
   </template>
   
   <script setup>
-  import { articles } from './articles.js'; // <-- Import from new file
+  import { articles } from '../assets/blogs/blogs'; // <-- Import from new file
   import logo from '../assets/images/logo/prettypicksLogo.png'; // Import logo
 
   import paymentImage from '../assets/images/paymentssl.png';

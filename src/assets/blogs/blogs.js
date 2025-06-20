@@ -1,14 +1,14 @@
 // ...existing imports for images...
-import clothes1 from "../assets/images/products/clothes1.jpg";
-import clothes2 from "../assets/images/products/clothes2.jpg";
-import clothes3 from "../assets/images/products/clothes3.jpg";
-import clothes4 from "../assets/images/products/clothes4.jpg";
-import jacket1 from "../assets/images/products/jacket1.jpg";
-import jacket2 from "../assets/images/products/jacket2.jpg";
-import jacket3 from "../assets/images/products/jacket3.jpg";
-import jacket4 from "../assets/images/products/jacket4.jpg";
-import jacket5 from "../assets/images/products/jacket5.jpg";
-import jacket6 from "../assets/images/products/jacket6.jpg";
+import clothes1 from "../images/products/clothes1.jpg";
+import clothes2 from "../images/products/clothes2.jpg";
+import clothes3 from "../images/products/clothes3.jpg";
+import clothes4 from "../images/products/clothes4.jpg";
+import jacket1 from "../images/products/jacket1.jpg";
+import jacket2 from "../images/products/jacket2.jpg";
+import jacket3 from "../images/products/jacket3.jpg";
+import jacket4 from "../images/products/jacket4.jpg";
+import jacket5 from "../images/products/jacket5.jpg";
+import jacket6 from "../images/products/jacket6.jpg";
 
 export const articles = [
     // ...existing articles array...

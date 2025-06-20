@@ -22,7 +22,7 @@
 <script>
 import InnerPageBanner from '../components/innerpage/InnerPageBanner.vue';
 import innerBanner from '../assets/images/BlackWeddingJewelryLandscap.png';
-import { articles } from '../components/articles.js'; // Assuming you have a file with articles data
+import { articles } from '../assets/blogs/blogs.js'; // Assuming you have a file with articles data
 
 export default {
     name: 'BlogPage',
