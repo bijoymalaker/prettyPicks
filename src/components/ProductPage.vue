@@ -73,27 +73,27 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed, watch } from "vue";
+import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
+import axios from "axios";
 
 const route = useRoute();
 const product = ref(null);
 const allProducts = ref([]);
 const suggestions = ref([]);
-const selectedImage = ref(""); // Add this line
+const selectedImage = ref("");
 
 const fetchProduct = async (id) => {
   // Fetch product details by ID
-  const res = await fetch(`https://dummyjson.com/products/${id}`);
-  product.value = await res.json();
-  selectedImage.value = product.value.thumbnail || product.value.images?.[0]; // Set default image
+  const res = await axios.get(`https://dummyjson.com/products/${id}`);
+  product.value = res.data;
+  selectedImage.value = product.value.thumbnail || product.value.images?.[0];
 };
 
 const fetchAllProducts = async () => {
   // Fetch all products for suggestions (limit to 12 for demo)
-  const res = await fetch("https://dummyjson.com/products?limit=12");
-  const data = await res.json();
-  allProducts.value = data.products || [];
+  const res = await axios.get("https://dummyjson.com/products?limit=12");
+  allProducts.value = res.data.products || [];
 };
 
 const updateSuggestions = () => {
