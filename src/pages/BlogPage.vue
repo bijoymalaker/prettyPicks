@@ -3,7 +3,7 @@
         <InnerPageBanner :innerBanner="blogBanner"  />
         <div class="container my-4">
             <div class="row">
-                <div class="col-md-4 mb-4" v-for="(post, index) in articles" :key="idex">
+                <div class="col-md-4 mb-4" v-for="(post, index) in articles" :key="index">
                     <div class="card">
                         <img :src="post.image" class="card-img-top" :alt="post.title">
                         <div class="card-body">

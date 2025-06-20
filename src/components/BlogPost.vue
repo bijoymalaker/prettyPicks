@@ -1,149 +1,109 @@
 <template>
-    <div>
-        <InnerPageBanner />
-         
-        <div class="container my-4">
-            <div class="row">
-                <!-- Blog Content -->
-                <main class="col-md-9">
-                    <article>
-                        <h2>{{ blogPost.title }}</h2>
-                        <p class="text-muted">Posted by {{ blogPost.author }} on {{ blogPost.date }}</p>
-                        <img :src="blogPost.image" class="img-fluid mb-4" :alt="blogPost.title">
-
-                        <p v-for="(paragraph, index) in blogPost.content" :key="index">
-                            {{ paragraph }}
-                        </p>
-
-                        <h3>প্রধান উপকারিতা</h3>
-                        <ul>
-                            <li v-for="(benefit, index) in blogPost.benefits" :key="index">{{ benefit }}</li>
-                        </ul>
-
-                        <h3>ব্যবহারবিধি</h3>
-                        <ol>
-                            <li v-for="(instruction, index) in blogPost.instructions" :key="index">{{ instruction }}</li>
-                        </ol>
-
-                        <h3>কেন {{ blogPost.title }} বেছে নেবেন?</h3>
-                        <ul>
-                            <li v-for="(reason, index) in blogPost.reasons" :key="index">{{ reason }}</li>
-                        </ul>
-
-                        <h3>{{ blogPost.origin.title }}</h3>
-                        <p>
-                            {{ blogPost.origin.description }}
-                        </p>
-                    </article>
-
-                    <!-- Comments Section -->
-                    <section class="mt-5">
-                        <h3>Leave a Reply</h3>
-                        <form @submit.prevent="submitComment">
-                            <div class="mb-3">
-                                <label for="comment" class="form-label">Comment</label>
-                                <textarea v-model="newComment.text" id="comment" class="form-control" rows="4"></textarea>
-                            </div>
-                            <div class="mb-3">
-                                <label for="name" class="form-label">Name</label>
-                                <input v-model="newComment.name" type="text" id="name" class="form-control">
-                            </div>
-                            <div class="mb-3">
-                                <label for="email" class="form-label">Email</label>
-                                <input v-model="newComment.email" type="email" id="email" class="form-control">
-                            </div>
-                            <button type="submit" class="btn btn-primary">Post Comment</button>
-                        </form>
-                    </section>
-                </main>
-
-                <!-- Sidebar -->
-                <aside class="col-md-3">
-                    <div class="mb-4">
-                        <h5>Categories</h5>
-                        <ul class="list-unstyled">
-                            <li v-for="(category, index) in categories" :key="index"><a href="#">{{ category }}</a></li>
-                        </ul>
-                    </div>
-                    <div class="mb-4">
-                        <h5>Recent Posts</h5>
-                        <ul class="list-unstyled">
-                            <li v-for="(post, index) in recentPosts" :key="index"><a href="#">{{ post }}</a></li>
-                        </ul>
-                    </div>
-                </aside>
-            </div>
+  <div class="container my-5" v-if="blog">
+    <div class="row">
+      <!-- Blog Image -->
+      <div class="col-md-6 mb-4">
+        <img :src="blog.image" :alt="blog.title" class="img-fluid rounded w-100" />
+      </div>
+      <!-- Blog Details -->
+      <div class="col-md-6 mb-4">
+        <h2 class="fw-bold mb-2">{{ blog.title }}</h2>
+        <div class="mb-2 text-muted">
+          <span>By {{ blog.author }}</span> |
+          <span>{{ blog.date }}</span>
         </div>
+        <div class="mb-3">
+          <span class="badge bg-primary" v-if="blog.category">{{ blog.category }}</span>
+        </div>
+        <div class="mb-3" v-if="blog.tags && blog.tags.length">
+          <span class="badge bg-secondary me-1" v-for="tag in blog.tags" :key="tag">{{ tag }}</span>
+        </div>
+        <p class="lead">{{ blog.summary }}</p>
+      </div>
     </div>
+    <!-- Blog Content -->
+    <div class="row">
+      <div class="col-12">
+        <div class="blog-content" v-html="blog.content"></div>
+      </div>
+    </div>
+    <!-- Related Blogs -->
+    <div class="mt-5" v-if="relatedBlogs.length">
+      <h4 class="mb-4">Related Posts</h4>
+      <div class="row">
+        <div v-for="related in relatedBlogs" :key="related.id" class="col-md-3 mb-4">
+          <div class="card h-100">
+            <img :src="related.image" :alt="related.title" class="card-img-top" style="height: 180px; object-fit: cover;" />
+            <div class="card-body">
+              <h6 class="card-title">{{ related.title }}</h6>
+              <p class="card-text text-muted small mb-1">{{ related.summary }}</p>
+              <router-link :to="{ name: 'blogPost', params: { id: related.id } }" class="btn btn-sm btn-outline-primary">Read More</router-link>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div v-else class="container my-5 text-center">
+    <div class="spinner-border text-primary" role="status"></div>
+    <p class="mt-3">Loading blog post...</p>
+  </div>
 </template>
 
-<script>
-import InnerPageBanner from './innerpage/InnerPageBanner.vue';
+<script setup>
+import { ref, onMounted, watch } from "vue";
+import { useRoute } from "vue-router";
+import {articles} from "../assets/blogs/blogs"; // Adjust the path if needed
 
-export default {
-    name: 'BlogPost',
-    components: {
-        InnerPageBanner
-    },
-    data() {
-        return {
-            blogTitle: 'Blog',
-            blogFooter: 'Pretty Picks. All Rights Reserved.',
-            blogPost: {
-                title: 'AR Carrot Honey Rice Milk Facewash: আপনার স্ক্রাব মধুর প্রকৃতির উপহার',
-                author: 'Labonno Blog',
-                date: 'December 17, 2024',
-                image: 'path/to/facewash-image.jpg',
-                content: [
-                    'মধুর শক্তি এবং এর সাথে চমৎকার ভিটামিন সমৃদ্ধ এই ফেসওয়াশটি ত্বকের যত্নে অতুলনীয়। এটি আপনার ত্বকের জন্য একটি প্রকৃতির উপহার নিয়ে এসেছে।'
-                ],
-                benefits: [
-                    'ত্বককে নরম এবং মসৃণ করে।',
-                    'মৃত কোষ দূর করে এবং উজ্জ্বলতা ফিরিয়ে আনে।',
-                    'ত্বকের গভীরে পরিচ্ছন্নতা নিশ্চিত করে।'
-                ],
-                instructions: [
-                    'ত্বক সামান্য ভেজান।',
-                    'একটু ফেসওয়াশ নিন এবং ত্বকে ম্যাসাজ করুন।',
-                    'পরিষ্কার পানি দিয়ে ধুয়ে ফেলুন।'
-                ],
-                reasons: [
-                    'প্রাকৃতিক উপাদান ব্যবহার করে তৈরি।',
-                    'ত্বকের জন্য সম্পূর্ণ নিরাপদ।',
-                    'সব ধরনের ত্বকে ব্যবহার উপযোগী।'
-                ],
-                origin: {
-                    title: 'Made in Thailand',
-                    description: 'এটি থাইল্যান্ডে তৈরি এবং AR Carrot Honey Rice Milk Facewash এর উপাদান সম্পূর্ণ প্রাকৃতিক। এটি আপনাকে ত্বকের যত্নে সেরা অভিজ্ঞতা দেবে।'
-                }
-            },
-            categories: ['Blog'],
-            recentPosts: [
-                'Unveiling the Magic of KOJIC GLUTA PAPAYA Soap',
-                'EHUV Gluta Sunscreen'
-            ],
-            newComment: {
-                text: '',
-                name: '',
-                email: ''
-            }
-        };
-    },
-    methods: {
-        submitComment() {
-            if (this.newComment.text && this.newComment.name && this.newComment.email) {
-                alert('Comment submitted successfully!');
-                this.newComment.text = '';
-                this.newComment.name = '';
-                this.newComment.email = '';
-            } else {
-                alert('Please fill out all fields before submitting.');
-            }
-        }
-    }
+const route = useRoute();
+const blog = ref(null);
+const allBlogs = ref([]);
+const relatedBlogs = ref([]);
+
+const fetchBlog = (id) => {
+  // Find the blog by id from blogsData
+  const found = articles.find(b => String(b.id) === String(id));
+  if (found) {
+    blog.value = found;
+  } else {
+    blog.value = null;
+  }
 };
+
+const fetchAllBlogs = () => {
+  allBlogs.value = articles;
+};
+
+const updateRelatedBlogs = () => {
+  relatedBlogs.value = allBlogs.value
+    .filter(b => String(b.id) !== String(route.params.id))
+    .sort(() => 0.5 - Math.random())
+    .slice(0, 4);
+};
+
+onMounted(() => {
+  fetchAllBlogs();
+  fetchBlog(route.params.id);
+  updateRelatedBlogs();
+});
+
+watch(() => route.params.id, (newId) => {
+  fetchBlog(newId);
+  updateRelatedBlogs();
+});
 </script>
 
 <style scoped>
-
+.blog-content {
+  font-size: 1.1rem;
+  line-height: 1.7;
+}
+.breadcrumb {
+  background: none;
+  padding: 0;
+  margin-bottom: 1rem;
+}
+.card-title {
+  font-size: 1.1rem;
+}
 </style>
