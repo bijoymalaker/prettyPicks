@@ -10,7 +10,7 @@
                             <h5 class="card-title">{{ post.title }}</h5>
                             <p class="text-muted">Posted on {{ post.date }}</p>
                             <p class="card-text">{{ post.summary }}</p>
-                            <router-link :to="{ name: 'blogPost', params: { id: post.id } }" class="btn btn-primary">Read More</router-link>
+                            <router-link :to="{ name: 'blogPost', params: { id: post.id } }" class="btn btn-primary" @click.native="scrollToTop" >Read More</router-link>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,12 @@ export default {
             blogFooter: 'Pretty Picks. All Rights Reserved.',
             articles: articles, // Assuming articles.js exports an array of article objects
         };
-    }
+    },
+    methods: {
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        },
+    },
 };
 </script>
 <style scoped>
