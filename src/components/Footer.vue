@@ -53,13 +53,22 @@
 </template>
 
 <script setup>
-import { articles } from "../assets/blogs/blogs";
+import { ref, onMounted } from "vue";
 import logo from "../assets/images/logo/prettypicksLogo.png";
 import paymentImage from "../assets/images/paymentssl.png";
+
+import axios from "axios";
+const articles = ref([]);
+
+onMounted(async () => {
+  const response = await axios.get("/src/assets/blogs/blogs.json");
+  articles.value = response.data;
+});
 
 function scrollToTop() {
   window.scrollTo({ top: 0, behavior: "smooth" });
 }
+
 </script>
 
 <style scoped></style>
