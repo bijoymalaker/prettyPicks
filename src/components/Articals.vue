@@ -26,7 +26,9 @@
                                 <p class="card-text text-muted small">
                                     {{ article.description }}
                                 </p>
-                                <a href="#" class="btn btn-link p-0">CONTINUE READING</a>
+                                <!-- <a href="#" class="btn btn-link p-0">CONTINUE READING</a> -->
+                                <router-link :to="{ name: 'blogPost', params: { id: article.id } }"
+                                    class="btn btn-primary" @click="scrollToTop">CONTINUE READING</router-link>
                             </div>
                         </div>
                     </div>
@@ -78,6 +80,11 @@ export default {
             }
         };
 
+        // Define a scrollToTop function
+        const scrollToTop = () => {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        };
+
         return {
             articlesPerPage,
             currentPage,
@@ -87,6 +94,11 @@ export default {
             articles,
         };
     },
+    methods: {
+        scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        },
+    }
 };
 </script>
 

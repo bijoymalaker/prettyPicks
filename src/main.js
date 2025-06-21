@@ -25,6 +25,7 @@ import { faPrint } from '@fortawesome/free-solid-svg-icons/faPrint';
 library.add(faHeart, faCartArrowDown, faFacebookF, faArrowTurnUp, faLocationDot, faPhone, faWhatsapp, faUser, faCalendar, faComments, faShare, faTwitter, faShare, faPrint)
 
 
+// Create the Vue app and mount it
 
 
 createApp(App).use(router).component('font-awesome-icon', FontAwesomeIcon).mount('#app')

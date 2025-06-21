@@ -41,7 +41,7 @@
             <div class="card-body">
               <h6 class="card-title">{{ related.title }}</h6>
               <p class="card-text text-muted small mb-1">{{ related.summary }}</p>
-              <router-link :to="{ name: 'blogPost', params: { id: related.id } }" class="btn btn-sm btn-outline-primary">Read More</router-link>
+              <router-link :to="{ name: 'blogPost', params: { id: related.id } }" class="btn btn-sm btn-outline-primary" @click.native="scrollToTop">Read More</router-link>
             </div>
           </div>
         </div>
@@ -63,6 +63,10 @@ const route = useRoute();
 const blog = ref(null);
 const allBlogs = ref([]);
 const relatedBlogs = ref([]);
+
+function scrollToTop() {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
 const fetchBlog = (id) => {
   const found = articles.find(b => String(b.id) === String(id));
