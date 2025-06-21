@@ -9,11 +9,11 @@
           </div>
           <ul class="list-unstyled text-muted small fs-5">
             <li>
-              <font-awesome-icon icon="fa-solid fa-location-dot" class="me-2" />Dhaka, Bangladesh
+              <address><font-awesome-icon icon="fa-solid fa-location-dot" class="me-2" />Dhaka, Bangladesh</address>
             </li>
             <li>
-              <font-awesome-icon icon="fa-solid fa-phone" class="me-2" />Phone:
-              01029794605
+              <a href="tel:+8801839211732" class=" text-decoration-none text-black-50"><font-awesome-icon icon="fa-solid fa-phone" class="me-2" />Phone:
+              01029794605</a>
             </li>
             <li>
               <font-awesome-icon icon="fa-brands fa-whatsapp" class="me-2" />Whatsapp: 01823934468
@@ -41,7 +41,7 @@
         <div class="col-md-6">
           <p class="text-muted small mb-0">
             All Rights Reserved by
-            <router-link to="/">Pretty Picks</router-link>
+            <router-link to="/" @click.native="scrollToTop">Pretty Picks</router-link>
           </p>
         </div>
         <div class="col-md-6 text-end">
